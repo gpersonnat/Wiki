@@ -1,0 +1,23 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block body %}
+
+
+{% if no_entry %}
+
+<p>Error: Encyclopedia Entry "{{ title }}" was not found.</p>
+
+
+{% else %}
+
+{{ content|safe }}
+
+<a href="{% url 'encyclopedia:edit_page' entry=title %}"><button>Edit</button></a>
+
+{% endif %}
+
+{% endblock %}
